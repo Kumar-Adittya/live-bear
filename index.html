@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>live Bear</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.head{
+  width: 200px;
+  height: 200px;
+  background-color: #87562d;
+  margin: 30px auto;
+  border-radius: 50% 50% 40% 40%;
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+}
+.head:before{
+  content: " ";
+  position: absolute;
+  bottom:0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  background-color: #684525;
+  border-radius: 50% 50% 40% 40%;
+}
+.head:after{
+  content: " ";
+  position: absolute;
+  background-color: #87562d;
+  bottom:0px;
+  left: 30px; 
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% 40% 40%;
+  z-index: 2; 
+}
+.eye{
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(40% - 20px);
+  left: calc(30% - 20px);
+  z-index: 3;
+  
+}
+.eye span{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 50%;
+  bottom: 5px;
+  right: 5px;
+  display: inline-block;
+/*   animation: eye-move 2s ease-in-out infinite alternate; */
+}
+.eye-2{
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(40% - 20px);
+  left: auto;
+  right: calc(30% - 20px);
+  z-index: 3;
+}
+.mouth{
+  width: 80px;
+  height: 60px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 20px;
+  z-index: 3;
+  left: calc(50% - 40px);
+  border-radius: 20px 20px 50px 50px; 
+  animation: mouth-move 1s ease-in-out infinite;
+}
+.mouth:after{
+  content:' ';
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  background-color: #4c341f;
+  border-radius: 20px 20px 50px 50px;
+  left: calc(50% - 20px);
+  top: -7.5px;
+}
+.mouth span{
+  position: absolute;
+  color: #000;
+  font-size: 20px;
+  left: 47%;
+  z-index: 0;
+  top: 13px;
+  
+}
+.mouth .mouth-2{
+    position: absolute;
+    font-size: 30px;
+    left: 25px;
+    top: 16px;
+    color: #9a9696;
+}
+.ear{
+  width: 70px;
+  height: 70px;
+  background-color: #87562d;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 40%;
+  border: 15px solid #4c341f; 
+}
+.ear-2{
+  right: 40%;
+  left: auto;
+}
+@keyframes mouth-move{
+  0%,100%{
+    top: 115px;
+  }
+  50%{
+    top: 120px;
+  } 
+} 
+	</style>
+</head>
+<body>
+
+<div class="head"> 
+  <div class="eye"><span></span></div>
+  <div class="eye eye-2"><span></span></div>
+  <div class="mouth"><span>|</span> <span class="mouth-2">⌣</span></div>
+</div>
+ <div class="ear"></div>
+  <div class="ear ear-2"></div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+  	$(window).on('mousemove', function(){
+ 	 $('.eye>span').css({'right' : +event.pageX/50+'px'}); 
+	});
+  </script>
+</body>
+</html>
